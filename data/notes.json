@@ -1,0 +1,26 @@
+[
+  {
+    "id": "10827f9b-1099-4da9-b5c3-5248a1a098b8",
+    "name": "Ultramilk",
+    "message": "haloooo",
+    "colorVariant": "cream",
+    "rotation": -1.83,
+    "attachment": "none",
+    "attachmentPos": "right",
+    "attachmentColor": "bg-[#A09080]/30",
+    "createdAt": 1784396821436,
+    "pending": false
+  },
+  {
+    "id": "f64b2e37-50db-47ce-8529-edbb3ee4dfe0",
+    "name": "Ultramen",
+    "message": "Luar biasa dipertemukan oleh Tuhan dengan komunitas yang saling menopang untuk bertumbuh.",
+    "colorVariant": "blush",
+    "rotation": -0.46,
+    "attachment": "washi",
+    "attachmentPos": "left",
+    "attachmentColor": "bg-[#D97757]/15",
+    "createdAt": 1784457598825,
+    "pending": false
+  }
+]
