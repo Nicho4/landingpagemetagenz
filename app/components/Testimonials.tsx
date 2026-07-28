@@ -24,7 +24,7 @@ const testimonials: Testimonial[] = [
       "Dulu sering merasa alone dan nggak punya tujuan. Di MetaGenz aku ketemu teman-teman yang dengerin keluh kesah tanpa ngehakimi. Truly a second home.",
     author: "Hellen",
     role:'',
-    initials: "K",
+    initials: "H",
     rotate: -2,
     width: "md:w-[44%]",
     fastener: "tape",

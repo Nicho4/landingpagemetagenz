@@ -513,7 +513,7 @@ export function DindingKenangan() {
           </h2>
           <HandDrawnUnderline animate={!prefersReducedMotion} />
           <p className="font-sans text-[#718096] mt-3 text-base md:text-lg max-w-md">
-            Bukan cuma kita yang simpan kenangan — giliran kamu ikut nulis di sini.
+            Bukan cuma kita yang simpan kenangan giliran kamu ikut nulis di sini.
           </p>
         </motion.div>
 
