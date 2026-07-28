@@ -151,6 +151,8 @@ function PhotoCard({
         <img
           src={photo.src}
           alt={`Memory ${index + 1}`}
+          loading="lazy"
+          decoding="async"
           className="h-full w-auto object-contain block pointer-events-none select-none"
         />
       </div>

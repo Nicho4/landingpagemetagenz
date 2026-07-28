@@ -127,7 +127,7 @@ export function AboutUs() {
             <div className="space-y-4 text-[#4A5568] font-sans text-base md:text-lg leading-relaxed">
               <p>
                 MetaGenz adalah youth ministry dari{" "}
-                <span className="font-semibold text-[#2D3748]">Gereja Bukit Carmel</span>.
+                <span className="font-semibold text-[#2D3748]">Gereja Bukit Carmel, Surabaya</span>.
                 Kita percaya kalau ke gereja itu nggak harus kaku dan membosankan.
               </p>
               <p>

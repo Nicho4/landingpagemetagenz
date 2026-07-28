@@ -108,6 +108,37 @@ export const metadata: Metadata = {
   },
 };
 
+// Structured data (JSON-LD) — membantu Google paham MetaGenz sebagai
+// organisasi + jam ibadah rutinnya secara eksplisit, bukan cuma dari teks
+// bebas. "Surabaya" di address di sini SAYA ASUMSIKAN dari konteks — cek
+// lagi kota/alamat lengkapnya sebelum deploy, dan idealnya lengkapi
+// streetAddress + postalCode kalau kamu mau tampil optimal di Google Maps
+// / local pack juga (bukan cuma addressLocality).
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ReligiousOrganization",
+  name: "MetaGenz Bukit Carmel",
+  alternateName: "MetaGenz",
+  url: "https://metagenzbukitcarmel.vercel.app",
+  logo: "https://metagenzbukitcarmel.vercel.app/Images/hero.webp",
+  image: "https://metagenzbukitcarmel.vercel.app/Images/hero.webp",
+  description:
+    "Youth ministry dari Gereja Bukit Carmel, Surabaya. Ibadah pemuda tiap Sabtu, komunitas, dan event untuk Gen Z.",
+  sameAs: ["https://www.instagram.com/metagenz/"],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Surabaya",
+    addressRegion: "Jawa Timur",
+    addressCountry: "ID",
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: "Saturday",
+    opens: "18:30",
+    closes: "20:00",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -118,6 +149,13 @@ export default function RootLayout({
       lang="id"
       className={`${fraunces.variable} ${plusJakartaSans.variable} ${lora.variable} ${caveat.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased bg-[#FDFBF7]">
         <BackgroundMusicProvider>
           <SmoothScroll>{children}</SmoothScroll>

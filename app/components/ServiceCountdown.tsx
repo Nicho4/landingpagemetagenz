@@ -140,7 +140,7 @@ export function ServiceCountdown() {
           <MapPin className="w-4 h-4 text-[#D97757]/70" />
 
           <span>
-            Gereja Bukit Carmel, Opengate jam 18:00
+            Gereja Bukit Carmel, Surabaya · Opengate jam 18:00
           </span>
 
         </div>

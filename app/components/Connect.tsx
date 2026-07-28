@@ -253,9 +253,9 @@ export function Connect() {
                       {item.num}
                     </div>
 
-                    <h4 className="font-heading text-lg md:text-xl font-bold text-[#1A202C] mb-2 pr-10">
+                    <h3 className="font-heading text-lg md:text-xl font-bold text-[#1A202C] mb-2 pr-10">
                       {item.title}
-                    </h4>
+                    </h3>
                     <p className="font-sans text-sm md:text-base text-[#718096] leading-relaxed">
                       {item.description}
                     </p>
