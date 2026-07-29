@@ -72,22 +72,25 @@ export function ServiceCountdown() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-[#120D08]/88 to-[#120D08]/65" />
 
-      {/* Warm Light */}
+      {/* Warm light */}
       <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#D97757]/15 to-transparent" />
 
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: .8 }}
         className="relative z-10 container mx-auto px-6 text-center translate-y-10 md:translate-y-14"
       >
-        {/* Subtitle */}
+
+        {/* subtitle */}
+
         <p className="font-hand text-[#D97757]/80 text-xl md:text-2xl mb-2">
           next service
         </p>
 
-        {/* Title */}
+        {/* title */}
+
         <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-[#FDFBF7] leading-none mb-1">
           Every Saturday
         </h2>
@@ -96,11 +99,15 @@ export function ServiceCountdown() {
           at 6:30 PM
         </p>
 
-        {/* Countdown */}
+        {/* countdown */}
+
         <div className="flex justify-center items-end gap-6 md:gap-10 mb-10 flex-wrap">
+
           {units.map((item, index) => (
             <div key={item.label} className="flex items-end">
+
               <div className="flex flex-col items-center">
+
                 <span
                   className="font-heading font-bold text-[#FDFBF7] leading-none"
                   style={{
@@ -113,6 +120,7 @@ export function ServiceCountdown() {
                 <span className="mt-2 text-[11px] md:text-xs tracking-[0.35em] uppercase text-[#FDFBF7]/35">
                   {item.label}
                 </span>
+
               </div>
 
               {index !== units.length - 1 && (
@@ -120,41 +128,37 @@ export function ServiceCountdown() {
                   •
                 </span>
               )}
+
             </div>
           ))}
         </div>
 
-        {/* Location */}
-        <div className="flex flex-col items-center gap-3 mb-10">
-          <div className="flex items-center gap-2 text-[#FDFBF7]/60">
-            <MapPin className="w-4 h-4 text-[#D97757]" />
+        {/* location */}
+
+        <div className="flex flex-col items-center gap-1.5 text-[#FDFBF7]/45 text-sm mb-8">
+
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-[#D97757]/70" />
             <span>GBT Bukit Carmel · Jl. Kupang Jaya No.102, Surabaya</span>
           </div>
 
-          <span className="text-xs text-[#FDFBF7]/35">
-            Opengate jam 18:00
-          </span>
+          <span className="text-xs text-[#FDFBF7]/30">Opengate jam 18:00</span>
 
-          <a
-            href="https://maps.app.goo.gl/YZFLxaPUyzh1UWrT8?g_st=aw"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center gap-2 rounded-full border border-[#D97757]/30 px-6 py-3 text-sm text-[#FDFBF7]/75 hover:bg-[#D97757]/10 hover:border-[#D97757]/60 hover:text-white transition-all duration-300"
-          >
-            <MapPin className="w-4 h-4 text-[#D97757]" />
-            Lihat Lokasi di Google Maps
-        </a>
         </div>
 
-        {/* Divider */}
+
+        {/* divider */}
+
         <div className="w-16 h-px bg-[#FDFBF7]/15 mx-auto mb-6" />
 
-        {/* Social */}
+        {/* social */}
+
         <p className="font-hand text-[#D97757]/75 text-xl mb-5">
           ikuti kami
         </p>
 
         <div className="flex justify-center gap-5">
+
           {[
             {
               href: "https://www.instagram.com/metagenz?igsh=dXk5ZWJwb3o4bHFq",
@@ -179,7 +183,7 @@ export function ServiceCountdown() {
                 </svg>
               ),
             },
-            {
+                       {
               href: "https://maps.app.goo.gl/YZFLxaPUyzh1UWrT8?g_st=aw",
               label: "Maps",
               icon: <MapPin className="w-5 h-5" />,
@@ -190,13 +194,14 @@ export function ServiceCountdown() {
               href={item.href}
               target="_blank"
               rel="noreferrer"
-              aria-label={item.label}
               className="w-12 h-12 border border-white/10 flex items-center justify-center text-white/55 hover:text-white hover:border-white/30 transition-all duration-300"
+              aria-label={item.label}
             >
               {item.icon}
             </a>
           ))}
         </div>
+
       </motion.div>
     </section>
   );
