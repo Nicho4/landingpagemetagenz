@@ -59,6 +59,7 @@ export function ServiceCountdown() {
 
   return (
     <section className="relative min-h-[760px] md:min-h-[900px] overflow-hidden flex items-center justify-center pt-24 pb-16">
+
       {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-no-repeat"
@@ -78,15 +79,18 @@ export function ServiceCountdown() {
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: .8 }}
         className="relative z-10 container mx-auto px-6 text-center translate-y-10 md:translate-y-14"
       >
-        {/* Subtitle */}
+
+        {/* subtitle */}
+
         <p className="font-hand text-[#D97757]/80 text-xl md:text-2xl mb-2">
           next service
         </p>
 
-        {/* Title */}
+        {/* title */}
+
         <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-[#FDFBF7] leading-none mb-1">
           Every Saturday
         </h2>
@@ -95,11 +99,15 @@ export function ServiceCountdown() {
           at 6:30 PM
         </p>
 
-        {/* Countdown */}
+        {/* countdown */}
+
         <div className="flex justify-center items-end gap-6 md:gap-10 mb-10 flex-wrap">
+
           {units.map((item, index) => (
             <div key={item.label} className="flex items-end">
+
               <div className="flex flex-col items-center">
+
                 <span
                   className="font-heading font-bold text-[#FDFBF7] leading-none"
                   style={{
@@ -112,6 +120,7 @@ export function ServiceCountdown() {
                 <span className="mt-2 text-[11px] md:text-xs tracking-[0.35em] uppercase text-[#FDFBF7]/35">
                   {item.label}
                 </span>
+
               </div>
 
               {index !== units.length - 1 && (
@@ -119,31 +128,37 @@ export function ServiceCountdown() {
                   •
                 </span>
               )}
+
             </div>
           ))}
         </div>
 
-        {/* Location */}
+        {/* location */}
+
         <div className="flex flex-col items-center gap-1.5 text-[#FDFBF7]/45 text-sm mb-8">
+
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-[#D97757]/70" />
             <span>GBT Bukit Carmel · Jl. Kupang Jaya No.102, Surabaya</span>
           </div>
 
-          <span className="text-xs text-[#FDFBF7]/30">
-            Opengate jam 18:00
-          </span>
+          <span className="text-xs text-[#FDFBF7]/30">Opengate jam 18:00</span>
+
         </div>
 
-        {/* Divider */}
+
+        {/* divider */}
+
         <div className="w-16 h-px bg-[#FDFBF7]/15 mx-auto mb-6" />
 
-        {/* Social */}
+        {/* social */}
+
         <p className="font-hand text-[#D97757]/75 text-xl mb-5">
           ikuti kami
         </p>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center gap-5">
+
           {[
             {
               href: "https://www.instagram.com/metagenz?igsh=dXk5ZWJwb3o4bHFq",
@@ -168,6 +183,11 @@ export function ServiceCountdown() {
                 </svg>
               ),
             },
+                       {
+              href: "https://maps.app.goo.gl/YZFLxaPUyzh1UWrT8?g_st=aw",
+              label: "Maps",
+              icon: <MapPin className="w-5 h-5" />,
+            },
           ].map((item) => (
             <a
               key={item.label}
@@ -181,6 +201,7 @@ export function ServiceCountdown() {
             </a>
           ))}
         </div>
+
       </motion.div>
     </section>
   );
