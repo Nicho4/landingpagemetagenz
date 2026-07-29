@@ -125,7 +125,8 @@ export function ServiceCountdown() {
         </div>
 
         {/* Location */}
-        <div className="flex flex-col items-center gap-3 mb-10">
+        {/* margin-bottom diubah menjadi mb-2 */}
+        <div className="flex flex-col items-center gap-3 mb-2">
           <div className="flex items-center gap-2 text-[#FDFBF7]/60">
             <MapPin className="w-4 h-4 text-[#D97757]" />
             <span>GBT Bukit Carmel · Jl. Kupang Jaya No.102, Surabaya</span>
@@ -147,19 +148,20 @@ export function ServiceCountdown() {
         </div>
 
         {/* Divider */}
-        <div className="w-16 h-px bg-[#FDFBF7]/15 mx-auto mb-8" />
+        {/* margin-bottom diubah menjadi mb-2 */}
+        <div className="w-16 h-px bg-[#FDFBF7]/15 mx-auto mb-2" />
 
         {/* Social */}
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-10">
           <a
             href="https://www.instagram.com/metagenz?igsh=dXk5ZWJwb3o4bHFq"
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram"
-            className="px-6 py-3 border border-white/10 flex items-center justify-center gap-3 text-white/55 hover:text-white hover:border-white/30 transition-all duration-300 rounded-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-[#D97757]/30 px-6 py-3 text-sm text-[#FDFBF7]/75 hover:bg-[#D97757]/10 hover:border-[#D97757]/60 hover:text-white transition-all duration-300"
           >
             <svg
-              className="w-5 h-5"
+              className="w-4 h-4 text-[#D97757]"
               fill="none"
               stroke="currentColor"
               strokeWidth="1.6"
