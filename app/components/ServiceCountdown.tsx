@@ -143,59 +143,40 @@ export function ServiceCountdown() {
           >
             <MapPin className="w-4 h-4 text-[#D97757]" />
             Lihat Lokasi di Google Maps
-        </a>
+          </a>
         </div>
 
         {/* Divider */}
-        <div className="w-16 h-px bg-[#FDFBF7]/15 mx-auto mb-6" />
+        <div className="w-16 h-px bg-[#FDFBF7]/15 mx-auto mb-8" />
 
         {/* Social */}
-        <p className="font-hand text-[#D97757]/75 text-xl mb-5">
-          ikuti kami
-        </p>
-
-        <div className="flex justify-center gap-5">
-          {[
-            {
-              href: "https://www.instagram.com/metagenz?igsh=dXk5ZWJwb3o4bHFq",
-              label: "Instagram",
-              icon: (
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  viewBox="0 0 24 24"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle
-                    cx="17.2"
-                    cy="6.8"
-                    r="1"
-                    fill="currentColor"
-                    stroke="none"
-                  />
-                </svg>
-              ),
-            },
-            {
-              href: "https://maps.app.goo.gl/YZFLxaPUyzh1UWrT8?g_st=aw",
-              label: "Maps",
-              icon: <MapPin className="w-5 h-5" />,
-            },
-          ].map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={item.label}
-              className="w-12 h-12 border border-white/10 flex items-center justify-center text-white/55 hover:text-white hover:border-white/30 transition-all duration-300"
+        <div className="flex justify-center">
+          <a
+            href="https://www.instagram.com/metagenz?igsh=dXk5ZWJwb3o4bHFq"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+            className="px-6 py-3 border border-white/10 flex items-center justify-center gap-3 text-white/55 hover:text-white hover:border-white/30 transition-all duration-300 rounded-sm"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              viewBox="0 0 24 24"
             >
-              {item.icon}
-            </a>
-          ))}
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle
+                cx="17.2"
+                cy="6.8"
+                r="1"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+            <span className="text-sm tracking-wide">Ikuti kami di Instagram</span>
+          </a>
         </div>
       </motion.div>
     </section>
