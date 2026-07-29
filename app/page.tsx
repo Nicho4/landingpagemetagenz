@@ -11,6 +11,21 @@ import { Testimonials } from "./components/Testimonials";
 import { Connect } from "./components/Connect";
 import { ServiceCountdown } from "./components/ServiceCountdown";
 
+// DindingKenangan sekarang narik data Supabase-nya server-side (lihat
+// komentar di file itu) — halaman ini jadinya punya satu bagian yang
+// "dinamis" (data bisa berubah tiap ada catatan baru di-approve). Tanpa
+// baris ini, Next.js kemungkinan besar nge-generate halaman ini sebagai
+// halaman statis SEKALI aja pas `next build`, dan catatan baru yang
+// di-approve setelahnya nggak akan pernah muncul sampai next deploy.
+//
+// `revalidate = 300` mengaktifkan ISR: halaman tetap disajikan dari cache
+// (cepat, hampir sama seperti statis penuh), tapi Next.js akan generate
+// ulang di background paling lama tiap 300 detik (5 menit) kalau ada
+// traffic — jadi catatan yang baru di-approve admin bakal muncul dalam
+// hitungan menit, tanpa perlu redeploy, dan tanpa kehilangan performa
+// halaman statis buat section-section lain yang isinya jarang berubah.
+export const revalidate = 300;
+
 // SVG feTurbulence grain — single consistent asset used across all sections
 const PAPER_GRAIN = `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>")`;
 
