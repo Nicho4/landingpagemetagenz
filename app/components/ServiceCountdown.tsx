@@ -146,6 +146,24 @@ export function ServiceCountdown() {
 
         </div>
 
+        {/* map embed — pakai query nama bisnis + kota (bukan API key) supaya
+            langsung resolve ke listing GBT Bukit Carmel yang udah
+            ke-verifikasi di Google Maps. Kalau mau versi yang lebih presisi
+            (nempel persis ke pin & rating-nya), ambil kode iframe resminya
+            langsung dari Google Maps: buka listing → Bagikan → tab "Sematkan
+            peta" → salin HTML-nya → tinggal ganti `src` di bawah ini. */}
+        <div className="w-full max-w-2xl mx-auto mb-8 overflow-hidden rounded-sm border border-white/10 shadow-2xl">
+          <iframe
+            title="Lokasi GBT Bukit Carmel"
+            src="https://www.google.com/maps?q=GBT+Bukit+Carmel,+Surabaya&output=embed"
+            width="100%"
+            height="260"
+            style={{ border: 0, filter: "grayscale(35%) contrast(1.1) brightness(0.9)" }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="block"
+          />
+        </div>
 
         {/* divider */}
 
