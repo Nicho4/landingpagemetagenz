@@ -135,14 +135,34 @@ export function ServiceCountdown() {
 
         {/* location */}
 
-        <div className="flex items-center justify-center gap-2 text-[#FDFBF7]/45 text-sm mb-10">
+        <div className="flex flex-col items-center gap-1.5 text-[#FDFBF7]/45 text-sm mb-8">
 
-          <MapPin className="w-4 h-4 text-[#D97757]/70" />
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-[#D97757]/70" />
+            <span>GBT Bukit Carmel · Jl. Kupang Jaya No.102, Surabaya</span>
+          </div>
 
-          <span>
-            Gereja Bukit Carmel, Surabaya · Opengate jam 18:00
-          </span>
+          <span className="text-xs text-[#FDFBF7]/30">Opengate jam 18:00</span>
 
+        </div>
+
+        {/* map embed — pakai query nama bisnis + kota (bukan API key) supaya
+            langsung resolve ke listing GBT Bukit Carmel yang udah
+            ke-verifikasi di Google Maps. Kalau mau versi yang lebih presisi
+            (nempel persis ke pin & rating-nya), ambil kode iframe resminya
+            langsung dari Google Maps: buka listing → Bagikan → tab "Sematkan
+            peta" → salin HTML-nya → tinggal ganti `src` di bawah ini. */}
+        <div className="w-full max-w-2xl mx-auto mb-8 overflow-hidden rounded-sm border border-white/10 shadow-2xl">
+          <iframe
+            title="Lokasi GBT Bukit Carmel"
+            src="https://www.google.com/maps?q=GBT+Bukit+Carmel,+Surabaya&output=embed"
+            width="100%"
+            height="260"
+            style={{ border: 0, filter: "grayscale(35%) contrast(1.1) brightness(0.9)" }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="block"
+          />
         </div>
 
         {/* divider */}

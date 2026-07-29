@@ -110,10 +110,8 @@ export const metadata: Metadata = {
 
 // Structured data (JSON-LD) — membantu Google paham MetaGenz sebagai
 // organisasi + jam ibadah rutinnya secara eksplisit, bukan cuma dari teks
-// bebas. "Surabaya" di address di sini SAYA ASUMSIKAN dari konteks — cek
-// lagi kota/alamat lengkapnya sebelum deploy, dan idealnya lengkapi
-// streetAddress + postalCode kalau kamu mau tampil optimal di Google Maps
-// / local pack juga (bukan cuma addressLocality).
+// bebas. Alamat di bawah ini sekarang alamat asli, diambil dari listing
+// Google Business Profile "GBT Bukit Carmel" yang sudah terverifikasi.
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ReligiousOrganization",
@@ -123,12 +121,14 @@ const jsonLd = {
   logo: "https://metagenzbukitcarmel.vercel.app/Images/hero.webp",
   image: "https://metagenzbukitcarmel.vercel.app/Images/hero.webp",
   description:
-    "Youth ministry dari Gereja Bukit Carmel, Surabaya. Ibadah pemuda tiap Sabtu, komunitas, dan event untuk Gen Z.",
+    "Youth ministry dari GBT Bukit Carmel, Surabaya. Ibadah pemuda tiap Sabtu, komunitas, dan event untuk Gen Z.",
   sameAs: ["https://www.instagram.com/metagenz/"],
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Jl. Kupang Jaya No.102, Simomulyo, Kec. Sukomanunggal",
     addressLocality: "Surabaya",
     addressRegion: "Jawa Timur",
+    postalCode: "60281",
     addressCountry: "ID",
   },
   openingHoursSpecification: {
