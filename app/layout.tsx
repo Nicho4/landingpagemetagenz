@@ -139,6 +139,33 @@ const jsonLd = {
   },
 };
 
+// Structured data (JSON-LD) tambahan — khusus tipe `WebSite`. Ini BEDA
+// dari `jsonLd` di atas (yang tipenya ReligiousOrganization, menjelaskan
+// MetaGenz sebagai *organisasi*). Google Search Central secara eksplisit
+// bilang sinyal PALING PENTING untuk menentukan "site name" yang tampil
+// tebal di hasil pencarian adalah structured data bertipe WebSite dengan
+// properti `name` — bukan Organization/ReligiousOrganization. Sebelum ini
+// ditambahkan, Google cuma punya ReligiousOrganization untuk dibaca, jadi
+// preferensi nama situs kita nggak pernah tersampaikan lewat jalur yang
+// paling dipercaya Google.
+//
+// `alternateName` diisi dua opsi cadangan:
+// - "MetaGenz": biar konsisten sama heading besar yang tampil di Hero
+//   section (lihat Hero.tsx), yang kemungkinan juga jadi salah satu
+//   sinyal yang dibaca Google dari konten halaman.
+// - "metagenzbukitcarmel.vercel.app": nama domain, direkomendasikan
+//   Google sebagai opsi cadangan khusus untuk situs yang masih baru /
+//   belum banyak sinyal kepercayaan, supaya kalau nama utama nggak
+//   dipilih, sistem Google tetap punya opsi lain yang relevan alih-alih
+//   fallback ke "Vercel".
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "MetaGenz Bukit Carmel",
+  alternateName: ["MetaGenz", "metagenzbukitcarmel.vercel.app"],
+  url: "https://metagenzbukitcarmel.vercel.app",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -154,6 +181,11 @@ export default function RootLayout({
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body className="antialiased bg-[#FDFBF7]">
