@@ -18,7 +18,7 @@ const CONFIG = {
   // → "Allow embedding" is turned ON. If it's off, the embed silently fails
   // for everyone (this is a very common cause of "works for me, not for my
   // friend" reports).
-  youtubeId: "AlAu4V52KzE",
+  youtubeId: "6AsZGKh5qcw",
 
   // Leave empty to auto-use YouTube's own thumbnail for youtubeId above.
   customThumbnail: "",
