@@ -112,16 +112,25 @@ export const metadata: Metadata = {
 // organisasi + jam ibadah rutinnya secara eksplisit, bukan cuma dari teks
 // bebas. Alamat di bawah ini sekarang alamat asli, diambil dari listing
 // Google Business Profile "GBT Bukit Carmel" yang sudah terverifikasi.
+//
+// @type sengaja pakai "Organization" (generik), bukan "ReligiousOrganization".
+// Schema.org tidak punya tipe resmi untuk "komunitas/kelompok pemuda", dan
+// MetaGenz sendiri lebih tepat digambarkan sebagai komunitas youth di dalam
+// gereja, bukan organisasi keagamaan formalnya itu sendiri (yang lebih pas
+// untuk GBT Bukit Carmel langsung). Identitas "komunitas youth gereja Bukit
+// Carmel" tetap disampaikan lewat teks di `description`, bukan lewat `@type`
+// — karena `@type` harus istilah resmi schema.org supaya Google bisa
+// membacanya sebagai structured data yang valid.
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "ReligiousOrganization",
+  "@type": "Organization",
   name: "MetaGenz Bukit Carmel",
   alternateName: "MetaGenz",
   url: "https://metagenzbukitcarmel.vercel.app",
   logo: "https://metagenzbukitcarmel.vercel.app/Images/hero.webp",
   image: "https://metagenzbukitcarmel.vercel.app/Images/hero.webp",
   description:
-    "Youth ministry dari GBT Bukit Carmel, Surabaya. Ibadah pemuda tiap Sabtu, komunitas, dan event untuk Gen Z.",
+    "Komunitas youth Gereja Bukit Carmel, Surabaya. Ibadah pemuda tiap Sabtu, komunitas, dan event untuk Gen Z.",
   sameAs: ["https://www.instagram.com/metagenz/"],
   address: {
     "@type": "PostalAddress",
