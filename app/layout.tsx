@@ -56,6 +56,9 @@ export const metadata: Metadata = {
     "Youth Surabaya",
     "Komunitas Pemuda",
     "Gereja Surabaya",
+    "GBT Bukit Carmel",
+    "gbt",
+    "Bukit karmel"
   ],
   authors: [
     {
