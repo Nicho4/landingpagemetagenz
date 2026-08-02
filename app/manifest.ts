@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: "MetaGenz",
 
     description:
-      "Website resmi komunitas youth Gereja Bukit Carmel.",
+      "Website resmi komunitas youth Gereja GBT Bukit Carmel.",
 
     start_url: "/",
 

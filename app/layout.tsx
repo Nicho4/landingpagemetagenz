@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     template: "%s | MetaGenz Bukit Carmel",
   },
   description:
-    "Website resmi MetaGenz Bukit Carmel. Komunitas youth Gereja Bukit Carmel dengan ibadah pemuda, event, pelayanan, galeri, dan Dinding Kenangan.",
+    "Website resmi MetaGenz Bukit Carmel. Komunitas youth Gereja GBT Bukit Carmel dengan ibadah pemuda, event, pelayanan, galeri, dan Dinding Kenangan.",
   keywords: [
     "MetaGenz",
     "MetaGenz Bukit Carmel",
