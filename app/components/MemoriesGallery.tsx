@@ -9,7 +9,7 @@ import {
   useMotionValue,
   useReducedMotion,
 } from "motion/react";
-import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, LayoutGrid, Maximize2, X } from "lucide-react";
 
 const rotations = [
   "-rotate-2",
@@ -196,11 +196,15 @@ function GalleryOverlay({
   photos,
   selectedIndex,
   setSelectedIndex,
+  cameFromGrid,
+  setCameFromGrid,
   onClose,
 }: {
   photos: PhotoItem[];
   selectedIndex: number | null;
   setSelectedIndex: (index: number | null) => void;
+  cameFromGrid: boolean;
+  setCameFromGrid: (value: boolean) => void;
   onClose: () => void;
 }) {
   const [direction, setDirection] = useState(0);
@@ -298,20 +302,39 @@ function GalleryOverlay({
         <X className="w-5 h-5" />
       </motion.button>
 
-      {/* Tombol kembali ke grid — cuma muncul waktu lagi lihat 1 foto,
-          biar bisa balik ke "Semua Foto" tanpa harus nutup galeri. */}
+      {/* Tombol pojok kiri atas waktu lagi lihat 1 foto — bentuknya beda
+          tergantung caranya masuk ke mode 1 foto:
+          - Dari grid "Semua Foto" (cameFromGrid true) → ini beneran
+            "kembali" ke grid, jadi cukup ikon panah bulat aja, tanpa teks.
+          - Langsung dari marquee (cameFromGrid false) → belum pernah lihat
+            grid sama sekali, jadi ini bukan "kembali" tapi ajakan buat
+            LIHAT semua foto — pakai ikon grid + teks "Semua Foto", tanpa
+            panah kembali. */}
       {selectedIndex !== null && (
-        <motion.button
-          onClick={() => setSelectedIndex(null)}
-          aria-label="Kembali ke semua foto"
-          whileHover={{ scale: 1.05, x: -2 }}
-          whileTap={{ scale: 0.92 }}
-          transition={{ type: "spring", stiffness: 300, damping: 18 }}
-          className="absolute top-4 left-4 md:top-6 md:left-6 z-20 flex items-center gap-1.5 h-10 pl-3 pr-4 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white/80 hover:bg-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D97757]"
-        >
-          <ChevronLeft className="w-5 h-5" />
-          <span className="font-hand text-sm md:text-base">Semua Foto</span>
-        </motion.button>
+        cameFromGrid ? (
+          <motion.button
+            onClick={() => setSelectedIndex(null)}
+            aria-label="Kembali ke semua foto"
+            whileHover={{ scale: 1.08, x: -2 }}
+            whileTap={{ scale: 0.92 }}
+            transition={{ type: "spring", stiffness: 300, damping: 18 }}
+            className="absolute top-4 left-4 md:top-6 md:left-6 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white/80 hover:bg-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D97757]"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </motion.button>
+        ) : (
+          <motion.button
+            onClick={() => setSelectedIndex(null)}
+            aria-label="Lihat semua foto"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.92 }}
+            transition={{ type: "spring", stiffness: 300, damping: 18 }}
+            className="absolute top-4 left-4 md:top-6 md:left-6 z-20 flex items-center gap-1.5 h-10 pl-3 pr-4 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white/80 hover:bg-white/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D97757]"
+          >
+            <LayoutGrid className="w-4 h-4" />
+            <span className="font-hand text-sm md:text-base">Semua Foto</span>
+          </motion.button>
+        )
       )}
 
       {selectedIndex === null ? (
@@ -356,6 +379,7 @@ function GalleryOverlay({
                   whileTap={{ scale: 0.96 }}
                   onClick={() => {
                     setDirection(0);
+                    setCameFromGrid(true);
                     setSelectedIndex(i);
                   }}
                   aria-label={`Buka foto ${i + 1}`}
@@ -473,6 +497,11 @@ export function MemoriesGallery({ photos }: { photos: string[] }) {
   const [setWidth, setSetWidth] = useState(0);
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  // Nandain gimana caranya user masuk ke mode lihat 1 foto: lewat grid
+  // "Semua Foto" dulu (true) atau langsung klik foto di marquee (false).
+  // Dipakai GalleryOverlay buat nentuin tombol pojok kiri atas jadi
+  // "kembali" (ikon doang) atau ajakan "Semua Foto" (ikon + teks).
+  const [cameFromGrid, setCameFromGrid] = useState(false);
 
   // Foto + rotasi dekoratifnya dihitung dari prop `photos` (daftar path
   // gambar hasil scan folder public/Images, dikirim dari Memories.tsx yang
@@ -711,12 +740,14 @@ export function MemoriesGallery({ photos }: { photos: string[] }) {
   });
 
   const openGalleryGrid = () => {
+    setCameFromGrid(false);
     setSelectedIndex(null);
     setGalleryOpen(true);
   };
 
   const openPhotoAt = (index: number) => {
     if (isDraggingRef.current) return;
+    setCameFromGrid(false);
     setSelectedIndex(index);
     setGalleryOpen(true);
   };
@@ -853,6 +884,8 @@ export function MemoriesGallery({ photos }: { photos: string[] }) {
             photos={photoItems}
             selectedIndex={selectedIndex}
             setSelectedIndex={setSelectedIndex}
+            cameFromGrid={cameFromGrid}
+            setCameFromGrid={setCameFromGrid}
             onClose={() => setGalleryOpen(false)}
           />
         )}
