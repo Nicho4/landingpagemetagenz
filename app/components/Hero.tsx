@@ -39,7 +39,7 @@ export function Hero() {
       >
         {/* Handwritten context label */}
         <p className="font-hand text-[#D97757]/90 text-xl md:text-2xl mb-4 tracking-wide">
-          Youth Ministry · Gereja GBT Bukit Carmel, Surabaya
+          Youth Ministry · GBT Bukit Carmel, Surabaya
         </p>
 
         <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-[#FDFBF7] tracking-tight mb-5 max-w-4xl leading-[1.05]">

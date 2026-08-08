@@ -43,9 +43,6 @@ export function AboutUs() {
               {/* Washi tape strip across top corner */}
               <div className="absolute -top-2.5 left-6 w-14 h-5 bg-[#D97757]/30 rotate-[-3deg] z-10" />
               <div className="overflow-hidden">
-                {/* width/height cuma rasio awal — tinggi mengikuti lebar
-                    kolom (w-full h-auto), jadi begitu file asli kelar
-                    dimuat, rasio otomatis dikoreksi ke rasio foto aslinya. */}
                 <Image
                   src="/Images/aboutus1.webp"
                   alt="Youth gathering"
@@ -127,7 +124,7 @@ export function AboutUs() {
             <div className="space-y-4 text-[#4A5568] font-sans text-base md:text-lg leading-relaxed">
               <p>
                 MetaGenz adalah youth ministry dari{" "}
-                <span className="font-semibold text-[#2D3748]">Gereja GBT Bukit Carmel, Surabaya</span>.
+                <span className="font-semibold text-[#2D3748]">GBT Bukit Carmel, Surabaya</span>.
                 Kita percaya kalau ke gereja itu nggak harus kaku dan membosankan.
               </p>
               <p>

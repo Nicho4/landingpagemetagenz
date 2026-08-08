@@ -40,11 +40,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://metagenzbukitcarmel.vercel.app"),
   applicationName: "MetaGenz Bukit Carmel",
   title: {
-    default: "MetaGenz Bukit Carmel | Komunitas Youth Gereja Bukit Carmel",
+    default: "MetaGenz | Youth GBT Bukit Carmel, Surabaya",
     template: "%s | MetaGenz Bukit Carmel",
   },
   description:
-    "Website resmi MetaGenz Bukit Carmel. Komunitas youth Gereja GBT Bukit Carmel dengan ibadah pemuda, event, pelayanan, galeri, dan Dinding Kenangan.",
+    "Website resmi MetaGenz, komunitas youth GBT Bukit Carmel Surabaya. Ibadah pemuda tiap Sabtu, event, pelayanan, galeri, dan Dinding Kenangan.",
   keywords: [
     "MetaGenz",
     "MetaGenz Bukit Carmel",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MetaGenz Bukit Carmel",
     description:
-      "Website resmi komunitas youth Gereja Bukit Carmel.",
+      "Website resmi komunitas youth GBT Bukit Carmel.",
     url: "https://metagenzbukitcarmel.vercel.app",
     siteName: "MetaGenz Bukit Carmel",
     locale: "id_ID",
@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MetaGenz Bukit Carmel",
     description:
-      "Website resmi komunitas youth Gereja Bukit Carmel.",
+      "Website resmi komunitas youth GBT Bukit Carmel.",
     images: ["/Images/hero.webp"],
   },
   robots: {
@@ -120,7 +120,7 @@ export const metadata: Metadata = {
 // Schema.org tidak punya tipe resmi untuk "komunitas/kelompok pemuda", dan
 // MetaGenz sendiri lebih tepat digambarkan sebagai komunitas youth di dalam
 // gereja, bukan organisasi keagamaan formalnya itu sendiri (yang lebih pas
-// untuk GBT Bukit Carmel langsung). Identitas "komunitas youth gereja Bukit
+// untuk GBT Bukit Carmel langsung). Identitas "komunitas youth GBT Bukit
 // Carmel" tetap disampaikan lewat teks di `description`, bukan lewat `@type`
 // — karena `@type` harus istilah resmi schema.org supaya Google bisa
 // membacanya sebagai structured data yang valid.
@@ -128,12 +128,12 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "MetaGenz Bukit Carmel",
-  alternateName: "MetaGenz",
+  alternateName: ["MetaGenz", "GBT Bukit Carmel"],
   url: "https://metagenzbukitcarmel.vercel.app",
   logo: "https://metagenzbukitcarmel.vercel.app/Images/hero.webp",
   image: "https://metagenzbukitcarmel.vercel.app/Images/hero.webp",
   description:
-    "Komunitas youth Gereja Bukit Carmel, Surabaya. Ibadah pemuda tiap Sabtu, komunitas, dan event untuk Gen Z.",
+    "Komunitas youth GBT Bukit Carmel, Surabaya. Ibadah pemuda tiap Sabtu, komunitas, dan event untuk Gen Z.",
   sameAs: ["https://www.instagram.com/metagenz/"],
   address: {
     "@type": "PostalAddress",
@@ -152,12 +152,12 @@ const jsonLd = {
 };
 
 // Structured data (JSON-LD) tambahan — khusus tipe `WebSite`. Ini BEDA
-// dari `jsonLd` di atas (yang tipenya ReligiousOrganization, menjelaskan
-// MetaGenz sebagai *organisasi*). Google Search Central secara eksplisit
-// bilang sinyal PALING PENTING untuk menentukan "site name" yang tampil
-// tebal di hasil pencarian adalah structured data bertipe WebSite dengan
-// properti `name` — bukan Organization/ReligiousOrganization. Sebelum ini
-// ditambahkan, Google cuma punya ReligiousOrganization untuk dibaca, jadi
+// dari `jsonLd` di atas (yang tipenya Organization, menjelaskan MetaGenz
+// sebagai *organisasi*). Google Search Central secara eksplisit bilang
+// sinyal PALING PENTING untuk menentukan "site name" yang tampil tebal di
+// hasil pencarian adalah structured data bertipe WebSite dengan properti
+// `name` — bukan Organization/ReligiousOrganization. Sebelum ini
+// ditambahkan, Google cuma punya Organization untuk dibaca, jadi
 // preferensi nama situs kita nggak pernah tersampaikan lewat jalur yang
 // paling dipercaya Google.
 //
